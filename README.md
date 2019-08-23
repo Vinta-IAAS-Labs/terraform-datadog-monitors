@@ -126,6 +126,8 @@ The `//` is very important, it's a terraform specific syntax used to separate gi
 
 ### Monitors summary ###
 
+- [billing](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/billing/)
+	- [datadog](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/billing/datadog/)
 - [caas](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/caas/)
 	- [kubernetes](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/caas/kubernetes/)
 		- [ark](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/caas/kubernetes/ark/)
