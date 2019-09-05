@@ -188,6 +188,8 @@ The `//` is very important, it's a terraform specific syntax used to separate gi
 	- [filter-tags](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/common/filter-tags/)
 - [database](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/database/)
 	- [cassandra](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/database/cassandra/)
+		- [cassandra_outliers_latency_per_datacenter](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/database/cassandra/cassandra_outliers_latency_per_datacenter/)
+		- [common](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/database/cassandra/common/)
 	- [elasticsearch](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/database/elasticsearch/)
 	- [mongodb](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/database/mongodb/)
 	- [mysql](https://git.fr.clara.net/claranet/pt-monitoring/projects/datadog/terraform/monitors/tree/master/database/mysql/)
