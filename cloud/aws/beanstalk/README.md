@@ -16,10 +16,10 @@ module "datadog-monitors-cloud-aws-beanstalk" {
 
 Creates DataDog monitors with the following checks:
 
-- Beanstalk environment health
-- Beanstalk application latency
-- Beanstalk application 5xx error rate
-- Beanstalk instance root file system usage
+- Beanstalk Application 5xx error rate
+- Beanstalk Application latency p90
+- Beanstalk Environment health
+- Beanstalk Instance root file system usage
 
 ## Inputs
 
