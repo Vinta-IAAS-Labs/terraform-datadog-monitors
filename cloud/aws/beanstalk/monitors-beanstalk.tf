@@ -1,7 +1,7 @@
 ### Beanstalk environment health ###
 resource "datadog_monitor" "health" {
   count   = var.health_enabled == "true" ? 1 : 0
-  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Beanstalk Environment health {{#is_alert}}{{{comparator}}} {{threshold}} ({{value}}){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}} ({{value}}){{/is_warning}}"
+  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Beanstalk Environment health {{#is_alert}}{{{comparator}}} {{threshold}} ({{value}} : either degraded or severe){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}} ({{value}} : warning){{/is_warning}}"
   message = coalesce(var.health_message, var.message)
   type    = "metric alert"
 
