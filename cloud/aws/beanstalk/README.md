@@ -50,7 +50,7 @@ Creates DataDog monitors with the following checks:
 | health\_threshold\_critical | Health critical threshold (see the `aws.elasticbeanstalk.environment_health` values in the Datadog documentation) | string | `"20"` | no |
 | health\_threshold\_warning | Health critical threshold (see the `aws.elasticbeanstalk.environment_health` values in the Datadog documentation) | string | `"15"` | no |
 | health\_time\_aggregator | Monitor aggregator for beanstalk health [available values: min, max or avg] | string | `"min"` | no |
-| health\_timeframe | Monitor timeframe for beanstalk health [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | string | `"last_15m"` | no |
+| health\_timeframe | Monitor timeframe for beanstalk health [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | string | `"last_10m"` | no |
 | message | Message sent when an alert is triggered | string | n/a | yes |
 | new\_host\_delay | Delay in seconds before monitor new resource | string | `"300"` | no |
 | prefix\_slug | Prefix string to prepend between brackets on every monitors names | string | `""` | no |
@@ -60,7 +60,7 @@ Creates DataDog monitors with the following checks:
 | root\_filesystem\_usage\_message | Custom message for application file system usage | string | `""` | no |
 | root\_filesystem\_usage\_threshold\_critical | File system usage critical threshold in percent | string | `"90"` | no |
 | root\_filesystem\_usage\_threshold\_warning | File system usage warning threshold in percent | string | `"80"` | no |
-| root\_filesystem\_usage\_timeframe | Monitor timeframe for beanstalk instance file system usage [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | string | `"last_15m"` | no |
+| root\_filesystem\_usage\_timeframe | Monitor timeframe for beanstalk instance file system usage [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | string | `"last_10m"` | no |
 
 ## Outputs
 

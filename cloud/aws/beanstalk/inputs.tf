@@ -61,7 +61,7 @@ variable "health_time_aggregator" {
 variable "health_timeframe" {
   description = "Monitor timeframe for beanstalk health [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]"
   type        = string
-  default     = "last_15m"
+  default     = "last_10m"
 }
 
 variable "health_threshold_critical" {
@@ -184,7 +184,7 @@ variable "root_filesystem_usage_aggregator" {
 variable "root_filesystem_usage_timeframe" {
   description = "Monitor timeframe for beanstalk instance file system usage [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]"
   type        = string
-  default     = "last_15m"
+  default     = "last_10m"
 }
 
 variable "root_filesystem_usage_threshold_critical" {
