@@ -37,7 +37,7 @@ resource "datadog_monitor" "application_latency_p90" {
   type    = "metric alert"
 
   query = <<EOQ
-    ${var.application_latency_p90_time_aggregator}(${var.application_latency_p90_timeframe}):min:aws.elasticbeanstalk.application_latency_p_9_0${module.filter-tags.query_alert} by {elasticbeanstalk_environment-name} >= ${var.application_latency_p90_threshold_critical}
+    ${var.application_latency_p90_time_aggregator}(${var.application_latency_p90_timeframe}):min:aws.elasticbeanstalk.application_latency_p_9_0${module.filter-tags-no-host.query_alert} by {elasticbeanstalk_environment-name} >= ${var.application_latency_p90_threshold_critical}
 EOQ
 
   thresholds = {
@@ -68,7 +68,7 @@ resource "datadog_monitor" "application_5xx_error_rate" {
   type    = "metric alert"
 
   query = <<EOQ
-    ${var.application_5xx_error_rate_time_aggregator}(${var.application_5xx_error_rate_timeframe}):sum:aws.elasticbeanstalk.application_requests_5xx${module.filter-tags.query_alert} by {elasticbeanstalk_environment-name}.as_count() / sum:aws.elasticbeanstalk.application_requests_total${module.filter-tags.query_alert} by {elasticbeanstalk_environment-name}.as_count() * 100 > ${var.application_5xx_error_rate_threshold_critical}
+    ${var.application_5xx_error_rate_time_aggregator}(${var.application_5xx_error_rate_timeframe}):sum:aws.elasticbeanstalk.application_requests_5xx${module.filter-tags-no-host.query_alert} by {elasticbeanstalk_environment-name}.as_count() / sum:aws.elasticbeanstalk.application_requests_total${module.filter-tags-no-host.query_alert} by {elasticbeanstalk_environment-name}.as_count() * 100 > ${var.application_5xx_error_rate_threshold_critical}
 EOQ
 
   thresholds = {
