@@ -154,50 +154,6 @@ EOQ
 }
 
 #
-# Memory Utilization Forecast
-#
-resource "datadog_monitor" "memory_utilization_forecast" {
-  count   = var.memory_utilization_forecast_enabled == "true" ? 1 : 0
-  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Cloud SQL Memory Utilization could reach {{#is_alert}}{{threshold}}%%{{/is_alert}} in a near future"
-  message = coalesce(var.memory_utilization_forecast_message, var.message)
-  type    = "query alert"
-
-  query = <<EOQ
-  ${var.memory_utilization_forecast_time_aggregator}(${var.memory_utilization_forecast_timeframe}):
-    forecast(
-      avg:gcp.cloudsql.database.memory.utilization{${var.filter_tags}} by {database_id} * 100,
-      '${var.memory_utilization_forecast_algorithm}',
-      ${var.memory_utilization_forecast_deviations},
-      interval='${var.memory_utilization_forecast_interval}',
-      ${var.memory_utilization_forecast_algorithm == "linear" ? format("history='%s',model='%s'", var.memory_utilization_forecast_linear_history, var.memory_utilization_forecast_linear_model) : ""}
-      ${var.memory_utilization_forecast_algorithm == "seasonal" ? format("seasonality='%s'", var.memory_utilization_forecast_seasonal_seasonality) : ""}
-      )
-    >= ${var.memory_utilization_forecast_threshold_critical}
-EOQ
-
-  thresholds = {
-    critical          = var.memory_utilization_forecast_threshold_critical
-    critical_recovery = var.memory_utilization_forecast_threshold_critical_recovery
-  }
-
-  evaluation_delay    = var.evaluation_delay
-  new_host_delay      = var.new_host_delay
-  notify_audit        = false
-  locked              = false
-  timeout_h           = 0
-  include_tags        = true
-  require_full_window = false
-  notify_no_data      = false
-  renotify_interval   = 0
-
-  tags = concat(["env:${var.environment}", "type:cloud", "provider:gcp", "resource:cloud-sql", "team:claranet", "created-by:terraform"], var.memory_utilization_forecast_extra_tags)
-
-  lifecycle {
-    ignore_changes = ["silenced"]
-  }
-}
-
-#
 # Failover Unavailable
 #
 resource "datadog_monitor" "failover_unavailable" {
