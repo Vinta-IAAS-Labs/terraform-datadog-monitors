@@ -68,7 +68,7 @@ resource "datadog_monitor" "application_5xx_error_rate" {
   type    = "query alert"
 
   query = <<EOQ
-    ${var.application_5xx_error_rate_time_aggregator}(${var.application_5xx_error_rate_timeframe}):sum:aws.elasticbeanstalk.application_requests_5xx${module.filter-tags-no-host.query_alert} by {region,elasticbeanstalk_environment-name}.as_count() / sum:aws.elasticbeanstalk.application_requests_total${module.filter-tags-no-host.query_alert} by {region,elasticbeanstalk_environment-name}.as_count() * 100 > ${var.application_5xx_error_rate_threshold_critical}
+    ${var.application_5xx_error_rate_time_aggregator}(${var.application_5xx_error_rate_timeframe}):sum:aws.elasticbeanstalk.application_requests_5xx${module.filter-tags-no-host.query_alert} by {region,elasticbeanstalk_environment-name}.as_rate() / sum:aws.elasticbeanstalk.application_requests_total${module.filter-tags-no-host.query_alert} by {region,elasticbeanstalk_environment-name}.as_rate() * 100 > ${var.application_5xx_error_rate_threshold_critical}
 EOQ
 
   thresholds = {
