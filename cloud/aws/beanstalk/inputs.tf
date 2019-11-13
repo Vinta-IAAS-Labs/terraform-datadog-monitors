@@ -178,25 +178,31 @@ variable "root_filesystem_usage_message" {
 variable "root_filesystem_usage_aggregator" {
   description = "Monitor aggregator for beanstalk instance file system usage [available values: min, max or avg]"
   type        = string
-  default     = "min"
+  default     = "max"
 }
 
 variable "root_filesystem_usage_timeframe" {
   description = "Monitor timeframe for beanstalk instance file system usage [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]"
   type        = string
-  default     = "last_10m"
+  default     = "last_5m"
 }
 
 variable "root_filesystem_usage_threshold_critical" {
   description = "File system usage critical threshold in percent"
   type        = string
-  default     = "90"
+  default     = 90
 }
 
 variable "root_filesystem_usage_threshold_warning" {
   description = "File system usage warning threshold in percent"
   type        = string
-  default     = "80"
+  default     = 80
+}
+
+variable "root_filesystem_usage_timeout_h" {
+  description = "File system usage auto-resolving state (in hours)"
+  type        = string
+  default     = "0"
 }
 
 variable "root_filesystem_usage_extra_tags" {

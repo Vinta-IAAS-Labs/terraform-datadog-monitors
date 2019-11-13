@@ -54,13 +54,14 @@ Creates DataDog monitors with the following checks:
 | message | Message sent when an alert is triggered | string | n/a | yes |
 | new\_host\_delay | Delay in seconds before monitor new resource | string | `"300"` | no |
 | prefix\_slug | Prefix string to prepend between brackets on every monitors names | string | `""` | no |
-| root\_filesystem\_usage\_aggregator | Monitor aggregator for beanstalk instance file system usage [available values: min, max or avg] | string | `"min"` | no |
+| root\_filesystem\_usage\_aggregator | Monitor aggregator for beanstalk instance file system usage [available values: min, max or avg] | string | `"max"` | no |
 | root\_filesystem\_usage\_enabled | Flag to enable Beanstalk instance file system usage monitor | string | `"true"` | no |
 | root\_filesystem\_usage\_extra\_tags | Extra tags for file system usage monitor | list(string) | `[]` | no |
 | root\_filesystem\_usage\_message | Custom message for application file system usage | string | `""` | no |
 | root\_filesystem\_usage\_threshold\_critical | File system usage critical threshold in percent | string | `"90"` | no |
 | root\_filesystem\_usage\_threshold\_warning | File system usage warning threshold in percent | string | `"80"` | no |
-| root\_filesystem\_usage\_timeframe | Monitor timeframe for beanstalk instance file system usage [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | string | `"last_10m"` | no |
+| root\_filesystem\_usage\_timeframe | Monitor timeframe for beanstalk instance file system usage [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | string | `"last_5m"` | no |
+| root\_filesystem\_usage\_timeout\_h | File system usage auto-resolving state (in hours) | string | `"0"` | no |
 
 ## Outputs
 

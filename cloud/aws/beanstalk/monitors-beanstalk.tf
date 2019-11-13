@@ -99,7 +99,7 @@ resource "datadog_monitor" "root_filesystem_usage" {
   type    = "metric alert"
 
   query = <<EOQ
-    ${var.root_filesystem_usage_aggregator}(${var.root_filesystem_usage_timeframe}):min:aws.elasticbeanstalk.root_filesystem_util${module.filter-tags.query_alert} by {region,elasticbeanstalk_environment-name,host} >= ${var.root_filesystem_usage_threshold_critical}
+    ${var.root_filesystem_usage_aggregator}(${var.root_filesystem_usage_timeframe}):min:aws.elasticbeanstalk.root_filesystem_util${module.filter-tags.query_alert} by {region,elasticbeanstalk_environment-name,host} > ${var.root_filesystem_usage_threshold_critical}
 EOQ
 
   thresholds = {
@@ -111,7 +111,7 @@ EOQ
   new_host_delay      = var.new_host_delay
   notify_no_data      = false
   notify_audit        = false
-  timeout_h           = "24"
+  timeout_h           = var.root_filesystem_usage_timeout_h
   include_tags        = true
   require_full_window = false
   locked              = false
