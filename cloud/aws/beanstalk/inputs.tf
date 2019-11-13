@@ -66,14 +66,12 @@ variable "health_timeframe" {
 
 variable "health_threshold_critical" {
   description = "Health critical threshold (see the `aws.elasticbeanstalk.environment_health` values in the Datadog documentation)"
-  type        = string
-  default     = "20"
+  default     = 20
 }
 
 variable "health_threshold_warning" {
   description = "Health critical threshold (see the `aws.elasticbeanstalk.environment_health` values in the Datadog documentation)"
-  type        = string
-  default     = "15"
+  default     = 15
 }
 
 variable "health_extra_tags" {
@@ -107,14 +105,13 @@ variable "application_latency_p90_timeframe" {
 
 variable "application_latency_p90_threshold_critical" {
   description = "P90 Latency critical threshold in seconds"
-  type        = string
-  default     = "0.5"
+  default     = 0.5
 }
 
 variable "application_latency_p90_threshold_warning" {
   description = "P90 Latency warning threshold in seconds"
   type        = string
-  default     = "0.3"
+  default     = 0.3
 }
 
 variable "application_latency_p90_extra_tags" {
@@ -148,14 +145,13 @@ variable "application_5xx_error_rate_timeframe" {
 
 variable "application_5xx_error_rate_threshold_critical" {
   description = "5xx Error rate critical threshold in percent"
-  type        = string
-  default     = "5"
+  default     = 5
 }
 
 variable "application_5xx_error_rate_threshold_warning" {
   description = "5xx Error rate warning threshold in percent"
   type        = string
-  default     = "3"
+  default     = 3
 }
 
 variable "application_5xx_error_rate_extra_tags" {
@@ -201,8 +197,7 @@ variable "root_filesystem_usage_threshold_warning" {
 
 variable "root_filesystem_usage_timeout_h" {
   description = "File system usage auto-resolving state (in hours)"
-  type        = string
-  default     = "0"
+  default     = 0
 }
 
 variable "root_filesystem_usage_extra_tags" {
